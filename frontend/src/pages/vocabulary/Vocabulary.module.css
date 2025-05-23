@@ -1,0 +1,433 @@
+/* 容器样式 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+/* 卡片基础样式 */
+.wordGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.wordCard {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #eaeaea;
+}
+
+.wordCard:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.wordCard.expanded {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+    border-color: #d9d9d9;
+}
+
+/* 卡片预览区 */
+.cardPreview {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.wordInfo {
+    flex: 1;
+}
+
+.wordTitle {
+    margin: 0 0 4px 0;
+    font-size: 20px;
+    color: #1a1a1a;
+}
+
+.briefPhonetic {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.briefMeaning {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.saveCount {
+    font-size: 13px;
+    color: #888;
+    margin-right: 8px;
+}
+
+/* 卡片操作区 */
+.cardActions {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.actionButton,
+.deleteButton {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    margin-left: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+
+.actionButton {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.actionButton:hover {
+    background-color: #e0e0e0;
+}
+
+.deleteButton {
+    background-color: #fff0f0;
+    color: #ff4d4f;
+}
+
+.deleteButton:hover {
+    background-color: #ff4d4f;
+    color: white;
+}
+
+/* 删除确认 */
+.deleteConfirm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.deleteConfirm span {
+    font-size: 13px;
+    color: #ff4d4f;
+    margin-bottom: 6px;
+}
+
+.confirmButtons {
+    display: flex;
+    gap: 6px;
+}
+
+.cancelButton,
+.confirmButton {
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.cancelButton {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.confirmButton {
+    background-color: #ff4d4f;
+    color: white;
+}
+
+.confirmButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* 卡片详情区 */
+.cardDetails {
+    padding: 0 16px 16px 16px;
+    border-top: 1px solid #f0f0f0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detailSection {
+    margin-bottom: 16px;
+}
+
+.detailSection h3 {
+    margin: 12px 0 8px 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.detailSection p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.sentence {
+    font-style: italic;
+    color: #444;
+}
+
+.translatedSentence {
+    color: #666;
+}
+
+.synonyms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.synonym {
+    background-color: #f5f5f5;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #333;
+}
+
+.closeButton {
+    width: 100%;
+    padding: 8px;
+    background-color: #f5f5f5;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.2s;
+}
+
+.closeButton:hover {
+    background-color: #e8e8e8;
+}
+
+/* 分页控件 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    gap: 16px;
+}
+
+.pageButton {
+    padding: 6px 16px;
+    background-color: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pageButton:hover:not(:disabled) {
+    background-color: #e8e8e8;
+}
+
+.pageButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pageInfo {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 错误状态 */
+.error {
+    padding: 12px;
+    background-color: #fff1f0;
+    border: 1px solid #ffccc7;
+    border-radius: 4px;
+    color: #ff4d4f;
+    margin-bottom: 20px;
+}
+
+/* 加载状态 */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 16px;
+    color: #666;
+}
+
+/* 空状态 */
+.emptyState {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    color: #666;
+}
+
+.emptyState p {
+    margin: 8px 0;
+}
+
+/* 移动设备适配 */
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
+
+    .wordGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .cardPreview {
+        padding: 14px;
+    }
+
+    .wordTitle {
+        font-size: 18px;
+    }
+
+    .actionButton,
+    .deleteButton {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .confirmButtons button {
+        padding: 4px 12px;
+        font-size: 14px;
+    }
+
+    .closeButton {
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
+/* 移动设备特定样式 */
+.mobileContainer {
+    padding: 12px 8px;
+}
+
+.mobileGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.mobileCard {
+    border-radius: 6px;
+}
+
+.mobileCard .cardPreview {
+    padding: 14px 12px;
+}
+
+.mobileCard .wordTitle {
+    font-size: 18px;
+}
+
+.mobileCard .briefPhonetic {
+    font-size: 13px;
+}
+
+.mobileCard .briefMeaning {
+    font-size: 13px;
+}
+
+.mobileCard .actionButton,
+.mobileCard .deleteButton {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+}
+
+.mobileCard .cardDetails {
+    padding: 0 12px 12px 12px;
+}
+
+.mobileCard .detailSection h3 {
+    font-size: 15px;
+    margin: 10px 0 6px 0;
+}
+
+.mobileCard .detailSection p {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.mobileCloseButton {
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.mobilePagination {
+    margin-top: 24px;
+}
+
+.mobilePageButton {
+    padding: 8px 16px;
+    font-size: 15px;
+}
+
+/* 添加触摸友好的删除确认 */
+.mobileCard .deleteConfirm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    animation: fadeIn 0.2s;
+}
+
+.mobileCard .deleteConfirm span {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.mobileCard .confirmButtons {
+    display: flex;
+    gap: 16px;
+}
+
+.mobileCard .cancelButton,
+.mobileCard .confirmButton {
+    padding: 8px 20px;
+    font-size: 15px;
+    border-radius: 20px;
+}

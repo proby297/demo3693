@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "127.0.0.1:6379:6379" # 仅允许本地主机访问 Redis
+    volumes:
+      - redis_data:/data # 持久化 Redis 数据
+
+  producer:
+    # Express 应用服务
+    build:
+      context: ./backend # Dockerfile 所在的目录
+      dockerfile: producer.Dockerfile
+    ports:
+      - "127.0.0.1:3000:3000" # 映射端口到本地主机
+    depends_on:
+      - redis
+    environment:
+      # 环境变量会被传递到容器中
+      - NODE_ENV=development
+      - REDIS_HOST=redis # 在 Docker Compose 网络中，服务名即主机名
+      - REDIS_PORT=6379
+    volumes:
+      # 将本地代码目录挂载到容器中，实现代码更改即时生效 (开发模式)
+      - ./backend:/usr/src/app
+      # 非常重要：防止本地 node_modules 覆盖容器内构建的 node_modules
+      - /usr/src/app/node_modules
+    # 如果使用 nodemon，可以修改 Dockerfile 中的 CMD 或在这里覆盖 command:
+    # command: npm run dev # 假设 package.json 中有 dev 脚本启动 nodemon
+
+  worker:
+    # Python Worker 服务
+    build:
+      context: ./pythonworker
+      dockerfile: worker.Dockerfile
+    depends_on:
+      - redis
+    environment:
+      - PYTHONUNBUFFERED=1 # 确保 Python print() 输出能立即在 Docker 日志中看到
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+      - ./pythonworker:/usr/src/app
+    # deploy: # 如果需要运行多个 worker 实例 (生产环境可能需要)
+    #   replicas: 2
+
+volumes:
+  # 定义数据卷
+  redis_data:
