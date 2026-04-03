@@ -1,0 +1,8 @@
+# pythonworker/requirements.txt
+
+redis
+langdetect
+spacy
+janome
+# watchdog
+watchfiles  # <-- 新增这一行

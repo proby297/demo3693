@@ -164,6 +164,7 @@ const Vocabulary = () => {
             console.log("Handle Page Change: Setting page to", newPage);
             setPage(newPage);
             loadWords(newPage); // 确保调用 loadWords
+            setExpandedWordId(null); // 清除展开状态
         }
     };
 
@@ -226,7 +227,7 @@ const Vocabulary = () => {
                                                 <h2 className={styles.wordTitle}>{word.word}</h2>
                                                 <p className={styles.briefPhonetic}>{word.phonetic || ''}</p>
                                                 <p className={styles.briefMeaning}>
-                                                    {word.contextMeaning ? (
+                                                    {expandedWordId !== word._id ? (word.contextMeaning ? (
                                                         isMobile
                                                             ? (word.contextMeaning.length > 20
                                                                 ? word.contextMeaning.substring(0, 20) + '...'
@@ -234,7 +235,7 @@ const Vocabulary = () => {
                                                             : (word.contextMeaning.length > 30
                                                                 ? word.contextMeaning.substring(0, 30) + '...'
                                                                 : word.contextMeaning)
-                                                    ) : ''}
+                                                    ) : '') : ''}
                                                 </p>
                                             </div>
 

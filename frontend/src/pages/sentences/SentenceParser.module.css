@@ -183,3 +183,12 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.languageSelectContainer {
+    display: flex;
+    justify-content: flex-end;
+    /* 🔹 右对齐 */
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}

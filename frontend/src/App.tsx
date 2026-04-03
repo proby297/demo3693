@@ -13,7 +13,7 @@ const ProtectedRoute = ({ children }: { children: ReactElement }) => {
   const { isAuthenticated, isLoadingAuth } = useAuth();
   if (isLoadingAuth) {
     // 认证状态仍在检查中，显示加载指示
-    return <div>加载中...</div>; // 或者你的 Spinner 组件
+    return <div>加载中...</div>; // 这里可以return一个组件，一个专门的加载动画。
   }
 
   if (!isAuthenticated) {
@@ -28,7 +28,7 @@ const AuthRoute = ({ children }: { children: ReactElement }) => {
   const { isAuthenticated, isLoadingAuth } = useAuth();
   if (isLoadingAuth) {
     // 认证状态仍在检查中，显示加载指示
-    return <div>加载中...</div>; // 或者你的 Spinner 组件
+    return <div>加载中...</div>; // 这里可以return一个组件，一个专门的加载动画。
   }
 
   if (isAuthenticated) {

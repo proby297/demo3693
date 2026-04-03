@@ -14,7 +14,7 @@ const MainLayout = () => {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <div className={styles.logo}>词汇学习系统🚀</div>
+                <div className={styles.logo}>Read like Kató Lomb in morden ways</div>
                 <nav className={styles.nav}>
                     <NavLink
                         to="/app/sentences"

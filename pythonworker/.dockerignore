@@ -1,7 +1,21 @@
-__pycache__
-*.pyc
-.venv
+# pythonworker/.dockerignore
+
+# 忽略 Dockerfile 本身和 dockerignore 文件
+Dockerfile
+.dockerignore
+
+# 忽略 Git 相关文件
 .git
 .gitignore
-Dockerfile
-README.md
+
+# 忽略 Python 缓存和虚拟环境
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+
+# 忽略 IDE 和编辑器配置文件
+.vscode/
+.idea/
