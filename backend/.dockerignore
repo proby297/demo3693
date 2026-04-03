@@ -1,0 +1,6 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+Dockerfile # 通常 Dockerfile 本身不需要复制进镜像
+README.md

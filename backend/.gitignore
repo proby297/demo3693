@@ -1,0 +1,33 @@
+# Node.js / npm
+node_modules/
+npm-debug.log*
+yarn-error.log
+*.lock
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.so
+.env
+.venv/
+venv/
+ENV/
+env/
+pip-freeze.txt
+vocabulary-backend.tar
+
+# IDE / OS specific
+.vscode/  # 通常可以忽略，但 launch.json 和 settings.json 有时会共享
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+*.out
+*.log
+
+# Docker (有时一些本地构建缓存或临时文件可以忽略)
+# .dockerignore 文件会更好地处理 Docker 构建上下文
